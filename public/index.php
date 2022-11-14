@@ -4,6 +4,8 @@ require '../Modules/login.php';
 require '../Modules/logout.php';
 require '../Modules/database.php';
 require '../Modules/common.php';
+require '../Modules/fietsen.php';
+
 
 session_start();
 //var_dump($_SESSION);
@@ -27,7 +29,12 @@ switch ($params[1]) {
         //var_dump($categories);die;
         include_once "../Templates/categories.php";
         break;
-
+    case 'fietsen':
+        echo "<h1>fietsen</h1>";
+         $titleSuffix = ' | fietsen';
+         $fietsen = getFietsen();
+         include_once "../templates/fietsen.php";
+        break;
     case 'category':
         include_once "../Templates/home.php";
         break;
